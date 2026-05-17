@@ -31,4 +31,13 @@ public class Grid {
         }
     }
 
+    public Cell findCellByCoordinates(int x, int y){
+        for (Cell cell : gridCells){
+            if((cell.getxM() == x) && (cell.getyM() == y)){
+                return cell;
+            }
+        }
+        return null;
+    }
+
 }

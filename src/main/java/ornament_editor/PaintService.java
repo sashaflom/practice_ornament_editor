@@ -7,15 +7,35 @@ public class PaintService {
 
     private static Grid grid;
     private static boolean paint = true;
+    private static boolean horizontalSymmetry = false;
+    private static boolean verticalSymmetry = false;
+    private static boolean centerSymmetry = false;
     private static ColorPicker colorPicker;
 
     public static void changeCellColor(Cell cell){
+        Color chosenColor;
         if(paint){
-            cell.setFill(colorPicker.getValue());
-            cell.setColor(colorPicker.getValue());
+            chosenColor = colorPicker.getValue();
         }else{
-            cell.setFill(Color.WHITE);
-            cell.setColor(Color.WHITE);
+            chosenColor = Color.WHITE;
+        }
+        cell.setFill(chosenColor);
+        cell.setColor(chosenColor);
+        if(horizontalSymmetry ){
+            Cell symmetryCell = grid.findCellByCoordinates(cell.getxM(), (Grid.getGridSize() - 1 - cell.getyM()));
+            symmetryCell.setFill(chosenColor);
+            symmetryCell.setColor(chosenColor);
+        }
+        if(verticalSymmetry){
+            Cell symmetryCell = grid.findCellByCoordinates((Grid.getGridSize() - 1 - cell.getxM()), cell.getyM());
+            symmetryCell.setFill(chosenColor);
+            symmetryCell.setColor(chosenColor);
+        }
+        if(centerSymmetry){
+            Cell symmetryHorCell = grid.findCellByCoordinates(cell.getxM(), (Grid.getGridSize() - 1 - cell.getyM()));
+            Cell symmetryVerCell = grid.findCellByCoordinates((Grid.getGridSize() - 1 - symmetryHorCell.getxM()), symmetryHorCell.getyM());
+            symmetryVerCell.setFill(chosenColor);
+            symmetryVerCell.setColor(chosenColor);
         }
     }
 
@@ -34,5 +54,17 @@ public class PaintService {
 
     public static void eraseAll(){
         grid.eraseAll();
+    }
+
+    public static void changeHorizontalSymmetry(boolean toWhat){
+        horizontalSymmetry = toWhat;
+    }
+
+    public static void changeVerticalSymmetry(boolean toWhat){
+        verticalSymmetry = toWhat;
+    }
+
+    public static void changeCenterSymmetry(boolean toWhat){
+        centerSymmetry = toWhat;
     }
 }

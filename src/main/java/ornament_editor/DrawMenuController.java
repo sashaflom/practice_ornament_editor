@@ -1,6 +1,7 @@
 package ornament_editor;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.GridPane;
@@ -13,6 +14,12 @@ public class DrawMenuController {
     private GridPane gridPane;
     @FXML
     private ColorPicker colorPicker;
+    @FXML
+    private CheckBox horizontalSymmetry;
+    @FXML
+    private CheckBox verticalSymmetry;
+    @FXML
+    private CheckBox centerSymmetry;
 
     @FXML
     public void initialize(){
@@ -46,6 +53,30 @@ public class DrawMenuController {
 
     public void eraseAll(){
         PaintService.eraseAll();
+    }
+
+    public void changeHorizontalSymmetry(){
+        if (horizontalSymmetry.isSelected()){
+            PaintService.changeHorizontalSymmetry(true);
+        } else{
+            PaintService.changeHorizontalSymmetry(false);
+        }
+    }
+
+    public void changeVerticalSymmetry(){
+        if (verticalSymmetry.isSelected()){
+            PaintService.changeVerticalSymmetry(true);
+        } else{
+            PaintService.changeVerticalSymmetry(false);
+        }
+    }
+
+    public void changeCenterSymmetry(){
+        if (centerSymmetry.isSelected()){
+            PaintService.changeCenterSymmetry(true);
+        } else{
+            PaintService.changeCenterSymmetry(false);
+        }
     }
 
 }
