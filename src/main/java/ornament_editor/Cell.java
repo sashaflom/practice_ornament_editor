@@ -3,6 +3,8 @@ package ornament_editor;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
+import java.util.Objects;
+
 public class Cell extends Rectangle {
 
     private Color color;
@@ -35,5 +37,17 @@ public class Cell extends Rectangle {
 
     public static int getCellSize(){
         return CELL_SIZE;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Cell cell = (Cell) o;
+        return xM == cell.xM && yM == cell.yM && Objects.equals(color, cell.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(color, xM, yM);
     }
 }
