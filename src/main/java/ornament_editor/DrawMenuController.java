@@ -41,4 +41,8 @@ public class DrawMenuController {
         PaintService.changeAction(false);
     }
 
+    public void eraseAll(){
+        PaintService.eraseAll();
+    }
+
 }

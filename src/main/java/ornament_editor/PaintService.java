@@ -28,4 +28,8 @@ public class PaintService {
     public static void changeAction(boolean toWhat){
         paint = toWhat;
     }
+
+    public static void eraseAll(){
+        grid.eraseAll();
+    }
 }

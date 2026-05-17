@@ -26,7 +26,7 @@
                 <Menu mnemonicParsing="false" text="Головне меню" />
             </menus>
         </MenuBar>
-      <Button id="clear_all" layoutX="882.0" layoutY="257.0" mnemonicParsing="false" text="Очистити все" />
+      <Button id="clear_all" layoutX="882.0" layoutY="257.0" mnemonicParsing="false" onAction="#eraseAll" text="Очистити все" />
       <ColorPicker layoutX="668.0" layoutY="257.0" promptText="Обрати колір">
          <opaqueInsets>
             <Insets />

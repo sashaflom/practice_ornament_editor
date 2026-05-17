@@ -1,6 +1,7 @@
 package ornament_editor;
 
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
 import java.util.ArrayList;
@@ -21,6 +22,13 @@ public class Grid {
 
     public void addCell(Cell cell){
         gridCells.add(cell);
+    }
+
+    public void eraseAll(){
+        for (Cell cell : gridCells){
+            cell.setFill(Color.WHITE);
+            cell.setColor(Color.WHITE);
+        }
     }
 
 }
