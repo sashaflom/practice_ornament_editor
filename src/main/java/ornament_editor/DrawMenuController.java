@@ -18,16 +18,23 @@ public class DrawMenuController {
     public void initialize(){
         grid.setHgap(0);
         grid.setVgap(0);
-        for (int i = 0; i<GRID_SIZE; i++){
-            for (int j = 0; j<GRID_SIZE; j++){
+        for (int col = 0; col<GRID_SIZE; col++){
+            for (int row = 0; row<GRID_SIZE; row++){
                 Rectangle cell = new Rectangle(CELL_SIZE, CELL_SIZE);
                 cell.setFill(Color.WHITE);
                 cell.setStroke(Color.LIGHTGRAY);
                 cell.setStrokeWidth(1);
                 cell.setStrokeType(StrokeType.INSIDE);
-                grid.add(cell, i, j);
+                int currentRow = row;
+                int currentCol = col;
+                cell.setOnMouseClicked(event -> handleCellClick(currentRow, currentCol, cell));
+                grid.add(cell, col, row);
             }
         }
+    }
+
+    private void handleCellClick(int row, int col, Rectangle cell){
+        cell.setFill(Color.YELLOW);
     }
 
 }
