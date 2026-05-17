@@ -42,7 +42,7 @@
       <CheckBox layoutX="880.0" layoutY="512.0" mnemonicParsing="false" text="Вертикальна" />
       <Label id="simetria" layoutX="812.0" layoutY="459.0" text="Симетрія" />
       <Button id="save" layoutX="793.0" layoutY="614.0" mnemonicParsing="false" text="Зберегти" />
-      <GridPane fx:id="grid" layoutX="35.0" layoutY="94.0">
+      <GridPane fx:id="gridPane" layoutX="35.0" layoutY="94.0">
       </GridPane>
     </children>
 </AnchorPane>
