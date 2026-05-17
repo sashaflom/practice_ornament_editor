@@ -14,7 +14,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1051.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1051.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <ImageView fitHeight="806.0" fitWidth="1051.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -27,21 +27,21 @@
             </menus>
         </MenuBar>
         <Canvas height="600.0" layoutX="50.0" layoutY="94.0" width="600.0" />
-      <Button layoutX="889.0" layoutY="192.0" mnemonicParsing="false" text="Очистити все" />
-      <ColorPicker layoutX="699.0" layoutY="192.0" promptText="Обрати колір">
+      <Button id="clear_all" layoutX="882.0" layoutY="257.0" mnemonicParsing="false" text="Очистити все" />
+      <ColorPicker layoutX="668.0" layoutY="257.0" promptText="Обрати колір">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </ColorPicker>
-      <MenuButton layoutX="815.0" layoutY="120.0" mnemonicParsing="false" popupSide="RIGHT" text="Дія">
+      <MenuButton layoutX="814.0" layoutY="156.0" mnemonicParsing="false" popupSide="RIGHT" text="Дія">
         <items>
           <MenuItem mnemonicParsing="false" text="Вишивати" />
           <MenuItem mnemonicParsing="false" text="Очистити клітинку" />
         </items>
       </MenuButton>
-      <CheckBox layoutX="708.0" layoutY="295.0" mnemonicParsing="false" text="Горизонтальна" />
-      <CheckBox layoutX="897.0" layoutY="295.0" mnemonicParsing="false" text="Вертикальна" />
-      <Label layoutX="813.0" layoutY="251.0" text="Симетрія" />
-      <Button layoutX="814.0" layoutY="367.0" mnemonicParsing="false" text="Зберегти" />
+      <CheckBox layoutX="678.0" layoutY="512.0" mnemonicParsing="false" text="Горизонтальна" />
+      <CheckBox layoutX="880.0" layoutY="512.0" mnemonicParsing="false" text="Вертикальна" />
+      <Label id="simetria" layoutX="812.0" layoutY="459.0" text="Симетрія" />
+      <Button id="save" layoutX="793.0" layoutY="614.0" mnemonicParsing="false" text="Зберегти" />
     </children>
 </AnchorPane>

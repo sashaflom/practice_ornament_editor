@@ -15,7 +15,7 @@
             <Image url="@images/background.png" />
          </image>
       </ImageView>
-      <MenuBar prefHeight="21.0" prefWidth="1051.0" style="-fx-background-color: #eeebd8;">
+      <MenuBar prefHeight="21.0" prefWidth="1051.0" style="-fx-background-color: #eeebd8;" stylesheets="@style.css">
         <menus>
           <Menu mnemonicParsing="false" text="Створити">
             <items>
