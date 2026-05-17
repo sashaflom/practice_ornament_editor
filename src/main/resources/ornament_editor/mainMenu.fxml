@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,5 +15,18 @@
             <Image url="@images/background.png" />
          </image>
       </ImageView>
+      <MenuBar prefHeight="21.0" prefWidth="1051.0" style="-fx-background-color: #eeebd8;">
+        <menus>
+          <Menu mnemonicParsing="false" text="Створити">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Нову" />
+                  <MenuItem mnemonicParsing="false" text="Завантажити" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Головне меню" />
+          <Menu mnemonicParsing="false" text="Детальніше" />
+        </menus>
+      </MenuBar>
+      <Canvas height="600.0" layoutX="226.0" layoutY="94.0" width="600.0" />
    </children>
 </AnchorPane>
