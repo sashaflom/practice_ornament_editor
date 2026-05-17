@@ -1,6 +1,7 @@
 package ornament_editor;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeType;
@@ -14,7 +15,7 @@ public class DrawMenuController {
     public void initialize(){
         gridPane.setHgap(0);
         gridPane.setVgap(0);
-        GridService.setGrid(new Grid());
+        PaintService.setGrid(new Grid());
         for (int row = 0; row<Grid.getGridSize(); row++){
             for (int col = 0; col<Grid.getGridSize(); col++){
                 int currentCol = col;
@@ -25,11 +26,19 @@ public class DrawMenuController {
                 cell.setStroke(Color.LIGHTGRAY);
                 cell.setStrokeWidth(1);
                 cell.setStrokeType(StrokeType.INSIDE);
-                cell.setOnMouseClicked(event -> GridService.changeCellColor(cell));
+                cell.setOnMouseClicked(event -> PaintService.changeCellColor(cell));
                 gridPane.add(cell, col, row);
-                GridService.addNewCell(cell);
+                PaintService.addNewCell(cell);
             }
         }
+    }
+
+    public void setPaint(){
+        PaintService.changeAction(true);
+    }
+
+    public void setErase(){
+        PaintService.changeAction(false);
     }
 
 }
