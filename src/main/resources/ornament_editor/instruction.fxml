@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1051.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1051.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ornament_editor.InsctructionController">
     <children>
         <ImageView fitHeight="806.0" fitWidth="1051.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -18,11 +18,14 @@
             <menus>
                 <Menu mnemonicParsing="false" text="Створити">
                     <items>
-                        <MenuItem fx:id="createNew" mnemonicParsing="false" text="Нову" />
+                        <MenuItem fx:id="createNew" mnemonicParsing="false" onAction="#switchToDrawingMode" text="Нову" />
                         <MenuItem fx:id="download" mnemonicParsing="false" text="Завантажити" />
                     </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Головне меню" />
+                <Menu mnemonicParsing="false" text="Головне меню">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#switchToMainMenu" text="Перейти" />
+               </items></Menu>
             </menus>
         </MenuBar>
     </children>

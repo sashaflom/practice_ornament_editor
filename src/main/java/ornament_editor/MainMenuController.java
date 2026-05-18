@@ -50,4 +50,13 @@ public class MainMenuController {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void switchToInstruction(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/ornament_editor/instruction.fxml"));
+        MenuItem menuItem = (MenuItem)event.getSource();
+        stage = (Stage)menuItem.getParentPopup().getOwnerWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
