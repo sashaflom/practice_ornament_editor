@@ -14,7 +14,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/ornament_editor/drawMenu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/ornament_editor/mainMenu.fxml"));
         primaryStage.setTitle("Піксельна вишивка. Редактор орнаменту");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
