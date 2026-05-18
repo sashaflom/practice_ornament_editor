@@ -33,3 +33,16 @@
     -fx-background-color: #efc8a4;
     -fx-font-style: italic;
 }
+#rect{
+    -fx-fill: #eeebd8;
+    -fx-stroke: none;
+}
+#main_menu{
+    -fx-background-color: #d1ae86;
+    -fx-border-width: 1px;
+    -fx-border-color: black;
+    -fx-pref-height: 44;
+}
+#main_menu:hover{
+    -fx-text-fill: white;
+}

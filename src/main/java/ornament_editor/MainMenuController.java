@@ -1,14 +1,27 @@
 package ornament_editor;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeType;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class MainMenuController {
 
     @FXML
     private GridPane gridPane;
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     @FXML
     public void initialize(){
@@ -27,5 +40,14 @@ public class MainMenuController {
                 gridPane.add(cell, col, row);
             }
         }
+    }
+
+    public void switchToDrawingMode(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/ornament_editor/drawMenu.fxml"));
+        MenuItem menuItem = (MenuItem)event.getSource();
+        stage = (Stage)menuItem.getParentPopup().getOwnerWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

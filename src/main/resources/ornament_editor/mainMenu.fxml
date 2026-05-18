@@ -15,15 +15,14 @@
             <Image url="@images/background.png" />
          </image>
       </ImageView>
-      <MenuBar prefHeight="21.0" prefWidth="1051.0" style="-fx-background-color: #eeebd8;">
+      <MenuBar fx:id="create" prefHeight="21.0" prefWidth="1051.0" style="-fx-background-color: #eeebd8;">
         <menus>
           <Menu mnemonicParsing="false" text="Створити">
             <items>
-              <MenuItem mnemonicParsing="false" text="Нову" />
-                  <MenuItem mnemonicParsing="false" text="Завантажити" />
+              <MenuItem fx:id="createNew" mnemonicParsing="false" onAction="#switchToDrawingMode" text="Нову" />
+                  <MenuItem fx:id="download" mnemonicParsing="false" text="Завантажити" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Головне меню" />
           <Menu mnemonicParsing="false" text="Детальніше" />
         </menus>
       </MenuBar>
