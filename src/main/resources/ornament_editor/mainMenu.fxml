@@ -7,6 +7,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1051.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ornament_editor.MainMenuController">
    <children>
@@ -29,7 +34,29 @@
                </items></Menu>
         </menus>
       </MenuBar>
-       <GridPane fx:id="gridPane" layoutX="226.0" layoutY="94.0">
+       <GridPane fx:id="gridPane" layoutX="21.0" layoutY="93.0">
        </GridPane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="600.0" layoutX="646.0" layoutY="93.0" stroke="#843131" strokeType="INSIDE" strokeWidth="5.0" width="385.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.5871212121212122">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.929411768913269" blue="0.8745098114013672" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.6823529601097107" green="0.4431372582912445" blue="0.4431372582912445" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Text id="title" fill="#843131" layoutX="655.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Редактор орнаменту" />
+      <Text id="signature" fill="#843131" layoutX="655.0" layoutY="632.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ІПЗ, практика навчальна" />
+      <Text id="signature" fill="#843131" layoutX="655.0" layoutY="671.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Робота Фломбойм Олександри" />
+      <Text id="title" fill="#843131" layoutX="677.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Піксельна вишивка" />
    </children>
 </AnchorPane>

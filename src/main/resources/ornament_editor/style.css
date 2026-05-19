@@ -48,7 +48,10 @@
 }
 #title{
     -fx-font-size: 30px;
-    -fx-text-fill: #ff2424;
     -fx-font-weight: bold;
+    -fx-font-style: italic;
+}
+#signature{
+    -fx-font-size: 23px;
     -fx-font-style: italic;
 }

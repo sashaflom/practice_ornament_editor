@@ -6,6 +6,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
@@ -30,7 +33,24 @@
                </items></Menu>
             </menus>
         </MenuBar>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffd8b7" height="600.0" layoutX="76.0" layoutY="93.0" stroke="#843131" strokeType="INSIDE" strokeWidth="5.0" width="900.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="600.0" layoutX="76.0" layoutY="93.0" stroke="#843131" strokeType="INSIDE" strokeWidth="5.0" width="900.0">
+         <fill>
+            <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.6515151442903461">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="1.0" green="0.9286419749259949" blue="0.8740741014480591" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.6842105388641357" green="0.4434697926044464" blue="0.4434697926044464" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
       <Text layoutX="157.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Українська вишивка — це значно більше, ніж просто гарні візерунки на тканині. Це справжня прадавня писемність, де кожен хрестик, лінія чи колір мають своє сакральне значення. Дана програма розроблена для створення схем такої української вишивки." textAlignment="CENTER" wrappingWidth="758.39990234375" />
       <Text layoutX="182.0" layoutY="399.0" strokeType="OUTSIDE" strokeWidth="0.0" text="На головному меню можна побачити схему вишивки імені &quot;Олександра&quot;." textAlignment="CENTER" />
       <Text layoutX="145.0" layoutY="471.0" strokeType="OUTSIDE" strokeWidth="0.0" text="При натисканні кнопки &quot;Створити&quot; можна створити нову, порожню схему та малювати на ній обраними в палітрі кольорами з можливістю горизонтальної, вертикальної чи центрової симетрії. Після створення вишивку можна зберегти як картинку в форматі PNG." textAlignment="CENTER" wrappingWidth="783.518310546875" />
