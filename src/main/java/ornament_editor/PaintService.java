@@ -1,11 +1,15 @@
 package ornament_editor;
 
+import javafx.scene.Node;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.StrokeType;
 
 public class PaintService {
 
     private static Grid grid;
+    private static GridPane gridPane;
     private static boolean paint = true;
     private static boolean horizontalSymmetry = false;
     private static boolean verticalSymmetry = false;
@@ -22,24 +26,25 @@ public class PaintService {
         cell.setFill(chosenColor);
         cell.setColor(chosenColor);
         if(horizontalSymmetry ){
-            Cell symmetryCell = grid.findCellByCoordinates(cell.getxM(), (Grid.getGridSize() - 1 - cell.getyM()));
+            Cell symmetryCell = grid.findCellByCoordinates(cell.getxM(), (grid.getGridHeight() - 1 - cell.getyM()));
             symmetryCell.setFill(chosenColor);
             symmetryCell.setColor(chosenColor);
         }
         if(verticalSymmetry){
-            Cell symmetryCell = grid.findCellByCoordinates((Grid.getGridSize() - 1 - cell.getxM()), cell.getyM());
+            Cell symmetryCell = grid.findCellByCoordinates((grid.getGridWidth() - 1 - cell.getxM()), cell.getyM());
             symmetryCell.setFill(chosenColor);
             symmetryCell.setColor(chosenColor);
         }
         if(centerSymmetry){
-            Cell symmetryHorCell = grid.findCellByCoordinates(cell.getxM(), (Grid.getGridSize() - 1 - cell.getyM()));
-            Cell symmetryVerCell = grid.findCellByCoordinates((Grid.getGridSize() - 1 - symmetryHorCell.getxM()), symmetryHorCell.getyM());
+            Cell symmetryHorCell = grid.findCellByCoordinates(cell.getxM(), (grid.getGridHeight() - 1 - cell.getyM()));
+            Cell symmetryVerCell = grid.findCellByCoordinates((grid.getGridWidth() - 1 - symmetryHorCell.getxM()), symmetryHorCell.getyM());
             symmetryVerCell.setFill(chosenColor);
             symmetryVerCell.setColor(chosenColor);
         }
     }
 
-    public static void setGrid(Grid newGrid, ColorPicker picker){
+    public static void setGrid(GridPane newGridPane, Grid newGrid, ColorPicker picker){
+        gridPane = newGridPane;
         grid = newGrid;
         colorPicker = picker;
     }
@@ -66,5 +71,39 @@ public class PaintService {
 
     public static void changeCenterSymmetry(boolean toWhat){
         centerSymmetry = toWhat;
+    }
+
+    public static void duplicateHorizontal(){
+        int newCellSize = 0;
+        double newStrokeWidth = 0;
+        for (Cell cell : grid.getGridCells()){
+            newCellSize = cell.getCellSize()/2;
+            newStrokeWidth = cell.getStrokeWidth()/2;
+            cell.setCellSize(newCellSize);
+            cell.setWidth(newCellSize);
+            cell.setHeight(newCellSize);
+            cell.setStrokeWidth(newStrokeWidth);
+        }
+        int previousWidth = grid.getGridWidth();
+        grid.setGridWidth(previousWidth*2);
+        for (int row = 0; row<grid.getGridHeight(); row++){
+            for (int col = previousWidth; col<grid.getGridWidth(); col++){
+                int currentCol = col;
+                int currentRow = row;
+                Color color = grid.findCellByCoordinates(currentCol-30, currentRow).getColor();
+                Cell cell = new Cell(newCellSize, color, currentCol, currentRow);
+                cell.setFill(color);
+                cell.setStroke(Color.LIGHTGRAY);
+                cell.setStrokeWidth(newStrokeWidth);
+                cell.setStrokeType(StrokeType.INSIDE);
+                cell.setOnMouseClicked(event -> PaintService.changeCellColor(cell));
+                gridPane.add(cell, col, row);
+                PaintService.addNewCell(cell);
+            }
+        }
+    }
+
+    public static void duplicateVertical(){
+
     }
 }

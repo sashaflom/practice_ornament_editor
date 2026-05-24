@@ -10,10 +10,11 @@ public class Cell extends Rectangle {
     private Color color;
     private int xM;
     private int yM;
-    private static final int CELL_SIZE = 20;
+    private int cellSize;
 
-    public Cell(Color color, int xM, int yM){
-        super(CELL_SIZE, CELL_SIZE);
+    public Cell(int cellSize, Color color, int xM, int yM){
+        super(cellSize, cellSize);
+        this.cellSize = cellSize;
         this.color = color;
         this.xM = xM;
         this.yM = yM;
@@ -35,8 +36,12 @@ public class Cell extends Rectangle {
         return yM;
     }
 
-    public static int getCellSize(){
-        return CELL_SIZE;
+    public int getCellSize(){
+        return cellSize;
+    }
+
+    public void setCellSize(int cellSize) {
+        this.cellSize = cellSize;
     }
 
     @Override
