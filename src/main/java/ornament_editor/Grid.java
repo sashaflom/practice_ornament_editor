@@ -9,38 +9,15 @@ import java.util.List;
 
 public class Grid {
 
-    private int gridWidth;
-    private int gridHeight;
-    private List<Cell> gridCells;
+    private static final int GRID_SIZE = 30;
+    List<Cell> gridCells;
 
-    public int getGridWidth() {
-        return gridWidth;
+    public static int getGridSize(){
+        return GRID_SIZE;
     }
 
-    public int getGridHeight() {
-        return gridHeight;
-    }
-
-    public List<Cell> getGridCells() {
-        return gridCells;
-    }
-
-    public void setGridWidth(int gridWidth) {
-        this.gridWidth = gridWidth;
-    }
-
-    public void setGridHeight(int gridHeight) {
-        this.gridHeight = gridHeight;
-    }
-
-    public void setGridCells(List<Cell> gridCells) {
-        this.gridCells = gridCells;
-    }
-
-    public Grid(int width, int height){
+    public Grid(){
         gridCells = new ArrayList<>();
-        gridWidth = width;
-        gridHeight = height;
     }
 
     public void addCell(Cell cell){
