@@ -33,7 +33,8 @@ public class MainMenuController {
                 int currentCol = col;
                 int currentRow = row;
                 Color color = Color.WHITE;
-                Cell cell = new Cell(20, 1, color, currentCol, currentRow);
+                double cellSize = grid.getGridWidthPx()/grid.getGridWidth() - 2;
+                Cell cell = new Cell(cellSize, 1, color, currentCol, currentRow);
                 cell.setFill(color);
                 cell.setStroke(Color.LIGHTGRAY);
                 cell.setStrokeWidth(1);
