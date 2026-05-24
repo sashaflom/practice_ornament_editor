@@ -27,8 +27,9 @@ public class MainMenuController {
     public void initialize(){
         gridPane.setHgap(0);
         gridPane.setVgap(0);
-        for (int row = 0; row<Grid.getGridSize(); row++){
-            for (int col = 0; col<Grid.getGridSize(); col++){
+        Grid grid = new Grid(30, 30, 660, 660);
+        for (int row = 0; row<grid.getGridHeight(); row++){
+            for (int col = 0; col<grid.getGridWidth(); col++){
                 int currentCol = col;
                 int currentRow = row;
                 Color color = Color.WHITE;

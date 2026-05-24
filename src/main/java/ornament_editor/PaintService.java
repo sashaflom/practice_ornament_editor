@@ -22,18 +22,18 @@ public class PaintService {
         cell.setFill(chosenColor);
         cell.setColor(chosenColor);
         if(horizontalSymmetry ){
-            Cell symmetryCell = grid.findCellByCoordinates(cell.getxM(), (Grid.getGridSize() - 1 - cell.getyM()));
+            Cell symmetryCell = grid.findCellByCoordinates(cell.getxM(), (grid.getGridHeight() - 1 - cell.getyM()));
             symmetryCell.setFill(chosenColor);
             symmetryCell.setColor(chosenColor);
         }
         if(verticalSymmetry){
-            Cell symmetryCell = grid.findCellByCoordinates((Grid.getGridSize() - 1 - cell.getxM()), cell.getyM());
+            Cell symmetryCell = grid.findCellByCoordinates((grid.getGridWidth() - 1 - cell.getxM()), cell.getyM());
             symmetryCell.setFill(chosenColor);
             symmetryCell.setColor(chosenColor);
         }
         if(centerSymmetry){
-            Cell symmetryHorCell = grid.findCellByCoordinates(cell.getxM(), (Grid.getGridSize() - 1 - cell.getyM()));
-            Cell symmetryVerCell = grid.findCellByCoordinates((Grid.getGridSize() - 1 - symmetryHorCell.getxM()), symmetryHorCell.getyM());
+            Cell symmetryHorCell = grid.findCellByCoordinates(cell.getxM(), (grid.getGridHeight() - 1 - cell.getyM()));
+            Cell symmetryVerCell = grid.findCellByCoordinates((grid.getGridWidth() - 1 - symmetryHorCell.getxM()), symmetryHorCell.getyM());
             symmetryVerCell.setFill(chosenColor);
             symmetryVerCell.setColor(chosenColor);
         }

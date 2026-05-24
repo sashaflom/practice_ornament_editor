@@ -9,15 +9,58 @@ import java.util.List;
 
 public class Grid {
 
-    private static final int GRID_SIZE = 30;
-    List<Cell> gridCells;
+    private int gridWidth;
+    private int gridHeight;
+    private double gridWidthPx;
+    private double gridHeightPx;
+    private List<Cell> gridCells;
 
-    public static int getGridSize(){
-        return GRID_SIZE;
+    public int getGridWidth() {
+        return gridWidth;
     }
 
-    public Grid(){
+    public void setGridWidth(int gridWidth) {
+        this.gridWidth = gridWidth;
+    }
+
+    public int getGridHeight() {
+        return gridHeight;
+    }
+
+    public void setGridHeight(int gridHeight) {
+        this.gridHeight = gridHeight;
+    }
+
+    public double getGridWidthPx() {
+        return gridWidthPx;
+    }
+
+    public void setGridWidthPx(double gridWidthPx) {
+        this.gridWidthPx = gridWidthPx;
+    }
+
+    public double getGridHeightPx() {
+        return gridHeightPx;
+    }
+
+    public void setGridHeightPx(double gridHeightPx) {
+        this.gridHeightPx = gridHeightPx;
+    }
+
+    public List<Cell> getGridCells() {
+        return gridCells;
+    }
+
+    public void setGridCells(List<Cell> gridCells) {
+        this.gridCells = gridCells;
+    }
+
+    public Grid(int width, int height, double widthPx, double heightPx){
         gridCells = new ArrayList<>();
+        gridWidth = width;
+        gridHeight = height;
+        gridWidthPx = widthPx;
+        gridHeightPx = heightPx;
     }
 
     public void addCell(Cell cell){

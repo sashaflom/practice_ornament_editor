@@ -37,9 +37,10 @@ public class DrawMenuController {
     public void initialize(){
         gridPane.setHgap(0);
         gridPane.setVgap(0);
-        PaintService.setGrid(new Grid(), colorPicker);
-        for (int row = 0; row<Grid.getGridSize(); row++){
-            for (int col = 0; col<Grid.getGridSize(); col++){
+        Grid grid = new Grid(30, 30, 660, 660);
+        PaintService.setGrid(grid, colorPicker);
+        for (int row = 0; row<grid.getGridHeight(); row++){
+            for (int col = 0; col<grid.getGridWidth(); col++){
                 int currentCol = col;
                 int currentRow = row;
                 Color color = Color.WHITE;
