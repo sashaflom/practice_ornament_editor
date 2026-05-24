@@ -43,7 +43,7 @@ public class DrawMenuController {
                 int currentCol = col;
                 int currentRow = row;
                 Color color = Color.WHITE;
-                Cell cell = new Cell(color, currentCol, currentRow);
+                Cell cell = new Cell(20, color, currentCol, currentRow);
                 cell.setFill(color);
                 cell.setStroke(Color.LIGHTGRAY);
                 cell.setStrokeWidth(1);
