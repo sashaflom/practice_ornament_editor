@@ -55,3 +55,8 @@
     -fx-font-size: 23px;
     -fx-font-style: italic;
 }
+#duplication{
+    -fx-background-color: #d1ae86;
+    -fx-border-width: 1px;
+    -fx-border-color: black;
+}

@@ -32,20 +32,25 @@ public class DrawMenuController {
     private CheckBox verticalSymmetry;
     @FXML
     private CheckBox centerSymmetry;
+    @FXML
+    private CheckBox horizontalDuplication;
+    @FXML
+    private CheckBox verticalDuplication;
 
     @FXML
     public void initialize(){
         gridPane.setHgap(0);
         gridPane.setVgap(0);
-        Grid grid = new Grid(30, 30, 660, 660);
-        PaintService.setGrid(grid, colorPicker);
+        gridPane.setSnapToPixel(false);
+        Grid grid = new Grid(30, 30, 650, 650);
+        PaintService.setGrid(gridPane, grid, colorPicker);
         for (int row = 0; row<grid.getGridHeight(); row++){
             for (int col = 0; col<grid.getGridWidth(); col++){
                 int currentCol = col;
                 int currentRow = row;
                 Color color = Color.WHITE;
                 double cellSize = grid.getGridWidthPx()/grid.getGridWidth() - 2;
-                Cell cell = new Cell(cellSize, 1, color, currentCol, currentRow);
+                Cell cell = new Cell(cellSize, color, currentCol, currentRow);
                 cell.setFill(color);
                 cell.setStroke(Color.LIGHTGRAY);
                 cell.setStrokeWidth(1);
@@ -99,6 +104,15 @@ public class DrawMenuController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void duplicate(){
+        if(horizontalDuplication.isSelected()){
+            PaintService.duplicateHorizontal();
+        }
+        if(verticalDuplication.isSelected()){
+            PaintService.duplicateVertical();
+        }
     }
 
 }

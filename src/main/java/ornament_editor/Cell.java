@@ -11,15 +11,13 @@ public class Cell extends Rectangle {
     private int xM;
     private int yM;
     private double cellSize;
-    private double strokeWidth;
 
-    public Cell(double size, double stroke, Color color, int xM, int yM){
+    public Cell(double size, Color color, int xM, int yM){
         super(size, size);
         cellSize = size;
         this.color = color;
         this.xM = xM;
         this.yM = yM;
-        strokeWidth = stroke;
     }
 
     public Color getColor() {

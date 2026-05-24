@@ -42,8 +42,8 @@
             </LinearGradient>
          </fill>
       </Rectangle>
-      <Button id="clear_all" layoutX="865.0" layoutY="265.0" mnemonicParsing="false" onAction="#eraseAll" text="Очистити все" />
-      <ColorPicker fx:id="colorPicker" layoutX="655.0" layoutY="266.0" onAction="#setPaint" promptText="Обрати колір">
+      <Button id="clear_all" layoutX="865.0" layoutY="245.0" mnemonicParsing="false" onAction="#eraseAll" text="Очистити все" />
+      <ColorPicker fx:id="colorPicker" layoutX="654.0" layoutY="246.0" onAction="#setPaint" promptText="Обрати колір">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -51,21 +51,25 @@
             <Color />
          </value>
       </ColorPicker>
-      <MenuButton fx:id="actionButton" layoutX="796.0" layoutY="192.0" mnemonicParsing="false" popupSide="RIGHT" text="Дія">
+      <MenuButton fx:id="actionButton" layoutX="796.0" layoutY="173.0" mnemonicParsing="false" popupSide="RIGHT" text="Дія">
         <items>
           <MenuItem fx:id="paint" mnemonicParsing="false" onAction="#setPaint" text="Вишивати" />
           <MenuItem fx:id="erase" mnemonicParsing="false" onAction="#setErase" text="Очистити клітинку" />
         </items>
       </MenuButton>
-      <CheckBox fx:id="horizontalSymmetry" layoutX="654.0" layoutY="426.0" mnemonicParsing="false" onAction="#changeHorizontalSymmetry" text="Горизонтальна" />
-      <CheckBox fx:id="verticalSymmetry" layoutX="864.0" layoutY="426.0" mnemonicParsing="false" onAction="#changeVerticalSymmetry" text="Вертикальна" />
-      <Label id="simetria" layoutX="796.0" layoutY="369.0" text="Симетрія" textFill="#843131" />
-      <Button id="save" layoutX="781.0" layoutY="591.0" mnemonicParsing="false" text="Зберегти" />
+      <CheckBox fx:id="horizontalSymmetry" layoutX="654.0" layoutY="352.0" mnemonicParsing="false" onAction="#changeHorizontalSymmetry" text="Горизонтальна" />
+      <CheckBox fx:id="verticalSymmetry" layoutX="856.0" layoutY="352.0" mnemonicParsing="false" onAction="#changeVerticalSymmetry" text="Вертикальна" />
+      <Label id="simetria" layoutX="796.0" layoutY="318.0" text="Симетрія" textFill="#843131" />
+      <Button id="save" layoutX="781.0" layoutY="617.0" mnemonicParsing="false" text="Зберегти" />
       <GridPane fx:id="gridPane" layoutX="21.0" layoutY="93.0">
       </GridPane>
-      <CheckBox fx:id="centerSymmetry" layoutX="748.0" layoutY="490.0" mnemonicParsing="false" onAction="#changeCenterSymmetry" text="Відносно центру" />
+      <CheckBox fx:id="centerSymmetry" layoutX="748.0" layoutY="394.0" mnemonicParsing="false" onAction="#changeCenterSymmetry" text="Відносно центру" />
       <Rectangle id="rect" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="43.0" stroke="BLACK" strokeType="INSIDE" width="1051.0" />
       <Button id="main_menu" layoutX="14.0" mnemonicParsing="false" onAction="#switchToMainMenu" text="Головне меню" />
       <Text id="title" fill="#843131" layoutX="743.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Вишивання" />
+      <Label id="simetria" layoutX="784.0" layoutY="462.0" text="Дублювання" textFill="#843131" />
+      <CheckBox fx:id="horizontalDuplication" layoutX="653.0" layoutY="496.0" mnemonicParsing="false" text="По горизонталі" />
+      <CheckBox fx:id="verticalDuplication" layoutX="855.0" layoutY="496.0" mnemonicParsing="false" text="По вертикалі" />
+      <Button id="duplication" layoutX="776.0" layoutY="541.0" mnemonicParsing="false" onAction="#duplicate" text="Дублювати" />
     </children>
 </AnchorPane>
