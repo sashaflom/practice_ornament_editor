@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1051.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ornament_editor.InsctructionController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="785.0" prefWidth="1051.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ornament_editor.InsctructionController">
     <children>
         <ImageView fitHeight="806.0" fitWidth="1051.0" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -24,7 +24,7 @@
                 <Menu mnemonicParsing="false" text="Створити">
                     <items>
                         <MenuItem fx:id="createNew" mnemonicParsing="false" onAction="#switchToDrawingMode" text="Нову" />
-                        <MenuItem fx:id="download" mnemonicParsing="false" text="Завантажити" />
+                        <MenuItem fx:id="download" mnemonicParsing="false" onAction="#download" text="Завантажити" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Головне меню">

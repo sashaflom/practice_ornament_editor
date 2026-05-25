@@ -34,4 +34,15 @@ public class InsctructionController {
         stage.show();
     }
 
+    public void download(ActionEvent event) throws IOException {
+        DrawMenuController.skipInitialize = true;
+        root = FXMLLoader.load(getClass().getResource("/ornament_editor/drawMenu.fxml"));
+        MenuItem menuItem = (MenuItem)event.getSource();
+        stage = (Stage)menuItem.getParentPopup().getOwnerWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        PaintService.download();
+    }
+
 }
