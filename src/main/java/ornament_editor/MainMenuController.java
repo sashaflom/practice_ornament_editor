@@ -1,5 +1,6 @@
 package ornament_editor;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,13 +8,18 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
+import javafx.scene.image.PixelReader;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeType;
 import javafx.stage.Stage;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class MainMenuController {
 
@@ -25,15 +31,21 @@ public class MainMenuController {
     private Parent root;
 
     @FXML
-    public void initialize(){
+    public void initialize() throws IOException {
+        InputStream is = getClass().getResourceAsStream("/ornament_editor/images/myName.png");
+        assert is != null;
+        WritableImage image = SwingFXUtils.toFXImage(ImageIO.read(is), null);
+        PixelReader pixelReader = image.getPixelReader();
+        int imgWidth = (int) image.getWidth();
+        int imgHeight = (int) image.getHeight();
         gridPane.setHgap(0);
         gridPane.setVgap(0);
-        Grid grid = new Grid(30, 30, 660, 660);
+        Grid grid = new Grid(imgWidth, imgHeight, 660, 660);
         for (int row = 0; row<grid.getGridHeight(); row++){
             for (int col = 0; col<grid.getGridWidth(); col++){
                 int currentCol = col;
                 int currentRow = row;
-                Color color = Color.WHITE;
+                Color color = pixelReader.getColor(col, row);
                 double cellSize = grid.getGridWidthPx()/grid.getGridWidth() - 2;
                 Cell cell = new Cell(cellSize, color, currentCol, currentRow);
                 cell.setFill(color);
