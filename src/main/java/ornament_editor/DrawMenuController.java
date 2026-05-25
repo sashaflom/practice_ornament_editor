@@ -18,6 +18,8 @@ import java.io.IOException;
 
 public class DrawMenuController {
 
+    public static boolean skipInitialize = false;
+
     private Stage stage;
     private Scene scene;
     private Parent root;
@@ -44,20 +46,22 @@ public class DrawMenuController {
         gridPane.setSnapToPixel(false);
         Grid grid = new Grid(30, 30, 650, 650);
         PaintService.setGrid(gridPane, grid, colorPicker);
-        for (int row = 0; row<grid.getGridHeight(); row++){
-            for (int col = 0; col<grid.getGridWidth(); col++){
-                int currentCol = col;
-                int currentRow = row;
-                Color color = Color.WHITE;
-                double cellSize = grid.getGridWidthPx()/grid.getGridWidth() - 2;
-                Cell cell = new Cell(cellSize, color, currentCol, currentRow);
-                cell.setFill(color);
-                cell.setStroke(Color.LIGHTGRAY);
-                cell.setStrokeWidth(1);
-                cell.setStrokeType(StrokeType.INSIDE);
-                cell.setOnMouseClicked(event -> PaintService.changeCellColor(cell));
-                gridPane.add(cell, col, row);
-                PaintService.addNewCell(cell);
+        if(!skipInitialize){
+            for (int row = 0; row<grid.getGridHeight(); row++){
+                for (int col = 0; col<grid.getGridWidth(); col++){
+                    int currentCol = col;
+                    int currentRow = row;
+                    Color color = Color.WHITE;
+                    double cellSize = grid.getGridWidthPx()/grid.getGridWidth() - 2;
+                    Cell cell = new Cell(cellSize, color, currentCol, currentRow);
+                    cell.setFill(color);
+                    cell.setStroke(Color.LIGHTGRAY);
+                    cell.setStrokeWidth(1);
+                    cell.setStrokeType(StrokeType.INSIDE);
+                    cell.setOnMouseClicked(event -> PaintService.changeCellColor(cell));
+                    gridPane.add(cell, col, row);
+                    PaintService.addNewCell(cell);
+                }
             }
         }
     }

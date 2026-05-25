@@ -52,7 +52,7 @@ public class PaintService {
         }
     }
 
-    public static void setGrid(GridPane newGridPane, Grid newGrid, ColorPicker picker){
+    public static void setGrid(GridPane newGridPane, Grid newGrid, ColorPicker picker) {
         gridPane = newGridPane;
         grid = newGrid;
         colorPicker = picker;
@@ -193,19 +193,30 @@ public class PaintService {
                 int imgWidth = (int) image.getWidth();
                 int imgHeight = (int) image.getHeight();
 
-                grid.eraseAll();
+                int max = Math.max(imgWidth, imgHeight);
+                double strokeWidth;
+                if(max == 30){
+                    strokeWidth = 1;
+                }else{
+                    strokeWidth = 0.5;
+                }
 
-                int targetWidth = Math.min(imgWidth, grid.getGridWidth());
-                int targetHeight = Math.min(imgHeight, grid.getGridHeight());
-
-                for (int y = 0; y < targetHeight; y++) {
-                    for (int x = 0; x < targetWidth; x++) {
-                        Color color = pixelReader.getColor(x, y);
-                        Cell cell = grid.findCellByCoordinates(x, y);
-                        if (cell != null) {
-                            cell.setFill(color);
-                            cell.setColor(color);
-                        }
+                grid.setGridWidth(imgWidth);
+                grid.setGridHeight(imgHeight);
+                for (int row = 0; row<grid.getGridHeight(); row++){
+                    for (int col = 0; col<grid.getGridWidth(); col++){
+                        int currentCol = col;
+                        int currentRow = row;
+                        Color color = pixelReader.getColor(col, row);
+                        double cellSize = grid.getGridWidthPx()/grid.getGridWidth() - 2*strokeWidth;
+                        Cell cell = new Cell(cellSize, color, currentCol, currentRow);
+                        cell.setFill(color);
+                        cell.setStroke(Color.LIGHTGRAY);
+                        cell.setStrokeWidth(strokeWidth);
+                        cell.setStrokeType(StrokeType.INSIDE);
+                        cell.setOnMouseClicked(event -> PaintService.changeCellColor(cell));
+                        gridPane.add(cell, col, row);
+                        PaintService.addNewCell(cell);
                     }
                 }
             } catch (IOException e) {

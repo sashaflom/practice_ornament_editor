@@ -46,6 +46,7 @@ public class MainMenuController {
     }
 
     public void switchToDrawingMode(ActionEvent event) throws IOException {
+        DrawMenuController.skipInitialize = false;
         root = FXMLLoader.load(getClass().getResource("/ornament_editor/drawMenu.fxml"));
         MenuItem menuItem = (MenuItem)event.getSource();
         stage = (Stage)menuItem.getParentPopup().getOwnerWindow();
@@ -64,7 +65,13 @@ public class MainMenuController {
     }
 
     public void download(ActionEvent event) throws IOException {
-        switchToDrawingMode(event);
+        DrawMenuController.skipInitialize = true;
+        root = FXMLLoader.load(getClass().getResource("/ornament_editor/drawMenu.fxml"));
+        MenuItem menuItem = (MenuItem)event.getSource();
+        stage = (Stage)menuItem.getParentPopup().getOwnerWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
         PaintService.download();
     }
 }

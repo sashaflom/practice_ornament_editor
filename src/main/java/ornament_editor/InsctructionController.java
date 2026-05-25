@@ -16,6 +16,7 @@ public class InsctructionController {
     private Parent root;
 
     public void switchToDrawingMode(ActionEvent event) throws IOException {
+        DrawMenuController.skipInitialize = false;
         root = FXMLLoader.load(getClass().getResource("/ornament_editor/drawMenu.fxml"));
         MenuItem menuItem = (MenuItem)event.getSource();
         stage = (Stage)menuItem.getParentPopup().getOwnerWindow();
