@@ -25,7 +25,7 @@
           <Menu mnemonicParsing="false" text="Створити">
             <items>
               <MenuItem fx:id="createNew" mnemonicParsing="false" onAction="#switchToDrawingMode" text="Нову" />
-                  <MenuItem fx:id="download" mnemonicParsing="false" text="Завантажити" />
+                  <MenuItem fx:id="download" mnemonicParsing="false" onAction="#download" text="Завантажити" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Детальніше">

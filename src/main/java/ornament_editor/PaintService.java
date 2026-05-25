@@ -1,9 +1,19 @@
 package ornament_editor;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.control.ColorPicker;
+import javafx.scene.image.PixelReader;
+import javafx.scene.image.PixelWriter;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeType;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
 
 public class PaintService {
 
@@ -128,6 +138,74 @@ public class PaintService {
                 cell.setOnMouseClicked(event -> PaintService.changeCellColor(cell));
                 gridPane.add(cell, col, row);
                 PaintService.addNewCell(cell);
+            }
+        }
+    }
+
+    public static void saveToPng(){
+        int width = grid.getGridWidth();
+        int height = grid.getGridHeight();
+
+        WritableImage writableImage = new WritableImage(width, height);
+        PixelWriter pixelWriter = writableImage.getPixelWriter();
+
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                Cell cell = grid.findCellByCoordinates(x, y);
+                Color color = (cell != null) ? cell.getColor() : Color.WHITE;
+                pixelWriter.setColor(x, y, color);
+            }
+        }
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Зберегти схему орнаменту");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PNG зображення", "*.png"));
+
+        Stage stage = (Stage) gridPane.getScene().getWindow();
+        File file = fileChooser.showSaveDialog(stage);
+
+        if (file != null) {
+            try {
+                ImageIO.write(SwingFXUtils.fromFXImage(writableImage, null), "png", file);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void download(){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Завантажити схему орнаменту");
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("PNG зображення", "*.png"));
+
+        Stage stage = (Stage) gridPane.getScene().getWindow();
+        File file = fileChooser.showOpenDialog(stage);
+
+        if (file != null) {
+            try {
+                WritableImage image = SwingFXUtils.toFXImage(ImageIO.read(file), null);
+                PixelReader pixelReader = image.getPixelReader();
+
+                int imgWidth = (int) image.getWidth();
+                int imgHeight = (int) image.getHeight();
+
+                grid.eraseAll();
+
+                int targetWidth = Math.min(imgWidth, grid.getGridWidth());
+                int targetHeight = Math.min(imgHeight, grid.getGridHeight());
+
+                for (int y = 0; y < targetHeight; y++) {
+                    for (int x = 0; x < targetWidth; x++) {
+                        Color color = pixelReader.getColor(x, y);
+                        Cell cell = grid.findCellByCoordinates(x, y);
+                        if (cell != null) {
+                            cell.setFill(color);
+                            cell.setColor(color);
+                        }
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }

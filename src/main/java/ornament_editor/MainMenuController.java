@@ -12,6 +12,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.StrokeType;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class MainMenuController {
@@ -60,5 +61,10 @@ public class MainMenuController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void download(ActionEvent event) throws IOException {
+        switchToDrawingMode(event);
+        PaintService.download();
     }
 }

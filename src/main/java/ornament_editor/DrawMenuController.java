@@ -115,4 +115,8 @@ public class DrawMenuController {
         }
     }
 
+    public void save(){
+        PaintService.saveToPng();
+    }
+
 }
