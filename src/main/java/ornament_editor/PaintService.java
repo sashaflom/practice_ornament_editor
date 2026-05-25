@@ -56,6 +56,10 @@ public class PaintService {
         gridPane = newGridPane;
         grid = newGrid;
         colorPicker = picker;
+        paint = true;
+        horizontalSymmetry = false;
+        verticalSymmetry = false;
+        centerSymmetry = false;
     }
 
     public static void addNewCell(Cell cell){
